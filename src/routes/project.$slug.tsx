@@ -6,15 +6,6 @@ import CustomCursor from "../components/CustomCursor";
 
 export const Route = createFileRoute("/project/$slug")({
   component: ProjectDetail,
-  head: ({ params }: { params: { slug: string } }) => {
-    const project = projects.find((p) => p.slug === params.slug);
-    return {
-      meta: [
-        { title: project ? `${project.title} — Jahwanth Pulugujju` : "Project" },
-        { name: "description", content: project?.summary ?? "" },
-      ],
-    };
-  },
   loader: ({ params }: { params: { slug: string } }) => {
     const project = projects.find((p) => p.slug === params.slug);
     if (!project) throw notFound();

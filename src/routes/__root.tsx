@@ -4,11 +4,9 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
 
-import appCss from "../styles.css?url";
+// Intentionally empty — CSS is imported in main.tsx
 
 function NotFoundComponent() {
   return (
@@ -68,49 +66,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Jahwanth Creative" },
-      { name: "description", content: "Social media creative portfolio featuring branding systems, content strategy, visual design, and short-form content." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Jahwanth Creative" },
-      { property: "og:description", content: "Social media creative portfolio featuring branding systems, content strategy, visual design, and short-form content." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Jahwanth Creative" },
-      { name: "twitter:description", content: "Social media creative portfolio featuring branding systems, content strategy, visual design, and short-form content." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/10258105-db4d-47c0-ac26-0ee2517c19a3" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/10258105-db4d-47c0-ac26-0ee2517c19a3" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
