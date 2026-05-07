@@ -62,6 +62,16 @@ function Index() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
 
+    // Nav scrolled state
+    const nav = document.getElementById("jpNav");
+    const onNavScroll = () => {
+      if (!nav) return;
+      if (window.scrollY > 80) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
+    };
+    window.addEventListener("scroll", onNavScroll, { passive: true });
+    onNavScroll();
+
     // Reveal observer
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -77,6 +87,7 @@ function Index() {
       clearTimeout(t);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onNavScroll);
       cancelAnimationFrame(raf);
       hoverables.forEach(el => {
         el.removeEventListener("mouseenter", enter);
