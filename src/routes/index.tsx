@@ -62,6 +62,16 @@ function Index() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
 
+    // Nav scrolled state
+    const nav = document.getElementById("jpNav");
+    const onNavScroll = () => {
+      if (!nav) return;
+      if (window.scrollY > 80) nav.classList.add("scrolled");
+      else nav.classList.remove("scrolled");
+    };
+    window.addEventListener("scroll", onNavScroll, { passive: true });
+    onNavScroll();
+
     // Reveal observer
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -77,6 +87,7 @@ function Index() {
       clearTimeout(t);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onNavScroll);
       cancelAnimationFrame(raf);
       hoverables.forEach(el => {
         el.removeEventListener("mouseenter", enter);
@@ -125,9 +136,20 @@ function Index() {
         <span>J</span>
       </div>
 
+      {/* NAV */}
+      <nav className="jp-nav" id="jpNav">
+        <a href="#top" className="jp-nav-logo">JP</a>
+        <div className="jp-nav-links">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
       {/* HERO */}
-      <section className="jp-hero reveal">
+      <section className="jp-hero reveal" id="top">
         <div className="jp-hero-grain" />
+        <div className="jp-hero-vignette" />
         <div className="jp-hero-label">PORTFOLIO — 2025</div>
         <div className="jp-hero-center">
           <h1 className="jp-hero-name">
@@ -164,7 +186,7 @@ function Index() {
       </section>
 
       {/* ABOUT */}
-      <section className="jp-about reveal">
+      <section className="jp-about reveal" id="about">
         <div className="jp-about-bignum">01</div>
         <div className="jp-about-grid">
           <div className="jp-about-left">
@@ -192,7 +214,7 @@ function Index() {
       </section>
 
       {/* FEATURED WORK */}
-      <section className="jp-work reveal">
+      <section className="jp-work reveal" id="work">
         <div className="jp-work-inner">
           <div className="jp-eyebrow gold">FEATURED PROJECT — 01</div>
           <h2 className="jp-work-h">Narico Naturals</h2>
@@ -201,13 +223,18 @@ function Index() {
             <div className="jp-work-card-left">
               <div className="jp-mock">
                 <div className="jp-mock-logo">
-                  <svg viewBox="0 0 80 80">
-                    <circle cx="40" cy="40" r="36" fill="none" stroke="var(--gold)" strokeWidth="1.5" />
-                    <path d="M40 22 C28 30, 28 50, 40 58 C52 50, 52 30, 40 22 Z M40 24 L40 56" fill="none" stroke="var(--gold)" strokeWidth="1.5" />
+                  <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="var(--gold)" strokeWidth="1.5" />
+                    <path d="M50 22 C30 32, 28 56, 50 78 C72 56, 70 32, 50 22 Z" fill="none" stroke="var(--gold)" strokeWidth="1.5" />
+                    <path d="M50 26 Q44 50, 50 76" fill="none" stroke="var(--gold)" strokeWidth="1.2" />
+                    <path d="M50 40 Q40 46, 36 56" fill="none" stroke="var(--gold)" strokeWidth="1" opacity="0.7" />
+                    <path d="M50 40 Q60 46, 64 56" fill="none" stroke="var(--gold)" strokeWidth="1" opacity="0.7" />
                   </svg>
                 </div>
                 <div className="jp-mock-posts">
-                  <div /><div /><div />
+                  <div className="jp-mock-post p1" />
+                  <div className="jp-mock-post p2" />
+                  <div className="jp-mock-post p3" />
                 </div>
                 <div className="jp-mock-swatches">
                   <span style={{ background: "#F5F0E8" }} />
@@ -233,6 +260,7 @@ function Index() {
 
       {/* SKILLS */}
       <section className="jp-skills reveal">
+        <div className="jp-skills-watermark">02</div>
         <h2 className="jp-skills-h">What I Bring</h2>
         <div className="jp-skills-list">
           {capabilities.map((c, i) => (
@@ -261,7 +289,7 @@ function Index() {
       </section>
 
       {/* CONTACT */}
-      <section className="jp-contact reveal">
+      <section className="jp-contact reveal" id="contact">
         <h2 className="jp-contact-h">
           Let's Build Something
           <br />
