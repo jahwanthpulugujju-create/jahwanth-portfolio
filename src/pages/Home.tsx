@@ -16,6 +16,8 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <div className="jp-root">
+      <a href="#main-content" className="jp-skip-link">Skip to content</a>
+
       <svg width="0" height="0" style={{ position: "absolute" }}>
         <filter id="noiseFilter">
           <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch" />

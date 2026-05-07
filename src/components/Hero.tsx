@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.5);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section className="jp-hero reveal" id="top">
       <div className="jp-hero-grain" />
@@ -64,10 +73,14 @@ export default function Hero() {
         <div className="jp-badge-dot" />
       </div>
 
-      <div className="jp-scroll-indicator">
+      <motion.div
+        className="jp-scroll-indicator"
+        animate={{ opacity: scrolled ? 0 : 0.6, pointerEvents: scrolled ? "none" : "auto" }}
+        transition={{ duration: 0.4 }}
+      >
         <span>SCROLL</span>
         <div className="jp-scroll-line" />
-      </div>
+      </motion.div>
     </section>
   );
 }

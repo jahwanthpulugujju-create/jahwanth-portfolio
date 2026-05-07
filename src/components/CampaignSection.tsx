@@ -127,8 +127,7 @@ export default function CampaignSection() {
             </div>
 
             <a
-              href="#work"
-              onClick={(e) => { e.preventDefault(); document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" }); }}
+              href="/project/toastmasters-murder-mystery"
               style={{
                 display: "inline-block", marginTop: 40, padding: "16px 32px",
                 border: "1px solid var(--gold)", color: "var(--gold)",
@@ -137,6 +136,7 @@ export default function CampaignSection() {
                 transition: "all 0.3s ease",
               }}
               className="jp-campaign-cta"
+              aria-label="View full Toastmasters Murder Mystery Night campaign"
             >
               VIEW FULL CAMPAIGN →
             </a>

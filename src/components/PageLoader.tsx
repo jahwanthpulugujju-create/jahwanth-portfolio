@@ -2,19 +2,19 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function PageLoader() {
-  const [visible, setVisible] = useState(() => {
-    if (typeof window === "undefined") return true;
-    return !sessionStorage.getItem("jp_loaded");
-  });
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (!visible) return;
+    if (sessionStorage.getItem("jp_loaded")) {
+      setVisible(false);
+      return;
+    }
     const t = setTimeout(() => {
       setVisible(false);
       sessionStorage.setItem("jp_loaded", "1");
     }, 1700);
     return () => clearTimeout(t);
-  }, [visible]);
+  }, []);
 
   return (
     <AnimatePresence>
