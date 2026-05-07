@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Jahwanth Creative" },
+      { name: "description", content: "Social media creative portfolio featuring branding systems, content strategy, visual design, and short-form content." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Jahwanth Creative" },
+      { property: "og:description", content: "Social media creative portfolio featuring branding systems, content strategy, visual design, and short-form content." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Jahwanth Creative" },
+      { name: "twitter:description", content: "Social media creative portfolio featuring branding systems, content strategy, visual design, and short-form content." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/10258105-db4d-47c0-ac26-0ee2517c19a3" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/10258105-db4d-47c0-ac26-0ee2517c19a3" },
     ],
     links: [
       {
