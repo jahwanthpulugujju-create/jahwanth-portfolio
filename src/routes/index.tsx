@@ -278,7 +278,7 @@ function Index() {
       {/* FOOTER */}
       <footer className="jp-footer">
         <span>Jahwanth Pulugujju</span>
-        <span>© 2025 Jahwanth Pulugujju — Built with intention.</span>
+         <span>© 2026 Jahwanth Pulugujju — Built with intention.</span>
       </footer>
     </div>
   );
