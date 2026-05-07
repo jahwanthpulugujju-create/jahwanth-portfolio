@@ -155,7 +155,7 @@
 
 html, body { cursor: none; }
 body { background: var(--cream); margin: 0; }
-html, body { scroll-behavior: smooth; }
+html, body { scroll-behavior: smooth; height: auto; min-height: 0; }
 
 .jp-root {
   font-family: 'DM Sans', sans-serif;
@@ -277,6 +277,34 @@ html, body { scroll-behavior: smooth; }
   position: absolute; top: 40px; left: 48px;
   color: var(--gold); font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
 }
+.jp-available {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px;
+  font-size: 11px; letter-spacing: 3px; color: var(--gold);
+}
+.jp-available-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #4ade80; box-shadow: 0 0 8px #4ade80;
+  animation: jp-avail 1.5s ease-in-out infinite;
+}
+@keyframes jp-avail { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+/* Scroll indicator */
+.jp-scroll-indicator {
+  position: absolute; right: 24px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  z-index: 3; opacity: 0.6;
+}
+.jp-scroll-indicator span {
+  writing-mode: vertical-rl; font-family: 'DM Sans', sans-serif;
+  font-size: 10px; letter-spacing: 4px; color: var(--gold); text-transform: uppercase;
+}
+.jp-scroll-line {
+  width: 1px; height: 60px; background: var(--gold);
+  animation: jp-scroll-line 1.8s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes jp-scroll-line { 0%, 100% { transform: scaleY(0.4); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
+@media (max-width: 768px) { .jp-scroll-indicator { display: none; } }
 .jp-hero-center { text-align: center; position: relative; z-index: 2; }
 .jp-hero-name {
   font-size: 140px; line-height: 0.95; letter-spacing: -2px;
@@ -382,8 +410,21 @@ html, body { scroll-behavior: smooth; }
   background: var(--forest); border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(201,168,76,0.3);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  margin: 0 auto; width: 80%;
+  margin: 0 auto; width: 80%; position: relative;
 }
+.jp-work-card::before, .jp-work-card::after {
+  content: ""; position: absolute; background: var(--gold);
+  transition: transform 0.6s ease; pointer-events: none;
+}
+.jp-work-card::before {
+  top: 0; left: 0; height: 1px; width: 100%;
+  transform: scaleX(0); transform-origin: left;
+}
+.jp-work-card::after {
+  bottom: 0; right: 0; height: 1px; width: 100%;
+  transform: scaleX(0); transform-origin: right;
+}
+.jp-work-card:hover::before, .jp-work-card:hover::after { transform: scaleX(1); }
 .jp-work-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 0 0 1px rgba(201,168,76,0.6), 0 30px 60px -20px rgba(0,0,0,0.4);
@@ -472,12 +513,12 @@ html, body { scroll-behavior: smooth; }
 }
 .jp-step-d { font-size: 14px; line-height: 1.7; color: var(--warm-white); opacity: 0.7; }
 .jp-step-line {
-  position: absolute; top: 60px; right: -20px; width: 40px;
-  border-top: 1px dotted var(--gold); opacity: 0.5;
+  position: absolute; top: 70px; right: -24px; width: 48px;
+  border-top: 1px dashed rgba(201,168,76,0.3);
 }
 
 /* CONTACT */
-.jp-contact { background: var(--cream); padding: 160px 60px 120px; text-align: center; }
+.jp-contact { background: var(--cream); padding: 80px 40px; text-align: center; height: auto; }
 .jp-contact-h {
   font-size: 88px; color: var(--deep-green); letter-spacing: -3px;
   line-height: 1.05; font-weight: 700;
@@ -489,17 +530,17 @@ html, body { scroll-behavior: smooth; }
 }
 .jp-pill {
   position: relative; overflow: hidden;
-  display: inline-flex; align-items: center; padding: 18px 36px;
-  border: 1px solid var(--deep-green); border-radius: 999px;
-  color: var(--deep-green); text-decoration: none; font-size: 15px;
-  font-weight: 500; transition: color 0.4s ease;
-  z-index: 1;
+  display: inline-flex; align-items: center; padding: 16px 32px;
+  border: 1.5px solid var(--gold); border-radius: 0;
+  color: var(--deep-green); text-decoration: none; font-size: 14px;
+  font-weight: 500; transition: color 0.3s ease, background 0.3s ease;
+  z-index: 1; letter-spacing: 1px;
 }
 .jp-pill::before {
-  content: ""; position: absolute; inset: 0; background: var(--deep-green);
-  transform: translateY(101%); transition: transform 0.4s ease; z-index: -1;
+  content: ""; position: absolute; inset: 0; background: var(--gold);
+  transform: translateY(101%); transition: transform 0.3s ease; z-index: -1;
 }
-.jp-pill:hover { color: var(--cream); }
+.jp-pill:hover { color: var(--deep-green); }
 .jp-pill:hover::before { transform: translateY(0); }
 .jp-contact-meta { margin-top: 48px; font-size: 13px; color: rgba(26,26,26,0.5); }
 
