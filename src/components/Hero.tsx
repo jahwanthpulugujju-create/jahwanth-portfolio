@@ -11,7 +11,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="jp-hero reveal" id="top">
+    <section className="jp-hero" id="top">
       <div className="jp-hero-grain" />
       <div className="jp-hero-vignette" />
 
@@ -30,7 +30,7 @@ export default function Hero() {
         variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
       >
         <h1 className="jp-hero-name">
-          {["JAHWANTH", "PULUGUJJU"].map((word, i) => (
+          {["JAH", "WANTH"].map((word, i) => (
             <motion.span
               key={i}
               className="word"
@@ -43,6 +43,15 @@ export default function Hero() {
             </motion.span>
           ))}
         </h1>
+        <motion.div
+          className="jp-hero-lastname"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { duration: 0.8, delay: 0.2 } },
+          }}
+        >
+          PULUGUJJU
+        </motion.div>
         <motion.div
           className="jp-hero-rule"
           variants={{

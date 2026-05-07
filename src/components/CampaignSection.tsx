@@ -1,17 +1,13 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const metrics = [
-  { label: "Objectives", value: "Event awareness + ticket urgency" },
-  { label: "Scope", value: "Instagram, WhatsApp, on-ground" },
-  { label: "Assets Delivered", value: "3 posters · Story sequence · Full copy" },
-  { label: "Results", value: "Full house — event sold out" },
-];
+const swatches = ["#FAF8F4", "#2D5A45", "#C9A84C", "#1C3A2F", "#1A1A1A"];
 
-const mockColors = [
-  ["#1a1a1a", "#C9A84C"],
-  ["#2D5A45", "#F5F0E8"],
-  ["#1C3A2F", "#C9A84C"],
+const metrics = [
+  { label: "Scope", value: "Logo · Color System · Instagram Visual Language" },
+  { label: "Content", value: "Post templates · Reel thumbnails · Caption framework" },
+  { label: "Deliverables", value: "5 content pillars · Full brand identity system" },
+  { label: "Status", value: "Ongoing — sole brand designer & strategist" },
 ];
 
 export default function CampaignSection() {
@@ -34,25 +30,25 @@ export default function CampaignSection() {
             letterSpacing: 4, textTransform: "uppercase",
             color: "var(--gold)", marginBottom: 24, fontWeight: 500,
           }}>
-            FEATURED CAMPAIGN
+            FEATURED PROJECT — 01
           </div>
           <h2 style={{
-            fontFamily: "'Playfair Display', serif", fontSize: 72,
-            color: "var(--cream)", fontWeight: 700, margin: "0 0 16px", lineHeight: 1.05,
+            fontFamily: "'Playfair Display', serif", fontSize: 96,
+            color: "var(--cream)", fontWeight: 700, margin: "0 0 16px", lineHeight: 1.0,
           }}>
-            Toastmasters<br />Murder Mystery Night
+            Narico Naturals
           </h2>
           <div style={{
             fontFamily: "'DM Sans', sans-serif", fontSize: 14, letterSpacing: 3,
             textTransform: "uppercase", color: "var(--gold)", marginBottom: 40,
           }}>
-            Event Campaign Design · Content Strategy · Visual Identity
+            Brand Identity · Social Strategy · Visual System
           </div>
           <p style={{
             fontSize: 17, lineHeight: 1.8, color: "rgba(245,240,232,0.8)",
-            maxWidth: 680, marginBottom: 64,
+            maxWidth: 680, marginBottom: 64, fontFamily: "'DM Sans', sans-serif",
           }}>
-            Designed and executed the full creative campaign for a Toastmasters murder-mystery themed event — covering event poster series, social media content, narrative copy, and on-ground experience design.
+            A complete brand identity and content system for a natural wellness company — covering logo philosophy, color psychology, Instagram visual language, content pillars, and growth strategy.
           </p>
         </motion.div>
 
@@ -60,43 +56,66 @@ export default function CampaignSection() {
           display: "grid", gridTemplateColumns: "1fr 1fr",
           gap: 48, alignItems: "start",
         }} className="jp-campaign-grid">
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            style={{
+              background: "var(--deep-green)", padding: "48px",
+              border: "1px solid rgba(201,168,76,0.2)",
+              display: "flex", flexDirection: "column", gap: 40,
+              alignItems: "center",
+            }}
           >
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 12 }}>
-              {mockColors.map(([bg, accent], i) => (
-                <div
-                  key={i}
-                  style={{
-                    background: bg, aspectRatio: "3/4",
-                    border: `1px solid ${accent}40`,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: 11, letterSpacing: 2, color: accent,
-                    textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif",
-                    position: "relative", overflow: "hidden",
-                  }}
-                >
-                  <div style={{
-                    position: "absolute", inset: 0, display: "flex",
-                    flexDirection: "column", alignItems: "center", justifyContent: "center",
-                    gap: 8, padding: 16,
-                  }}>
-                    <div style={{ width: 32, height: 1, background: accent, opacity: 0.6 }} />
-                    <div style={{ fontSize: 10, letterSpacing: 3, color: accent, textAlign: "center", lineHeight: 1.6 }}>
-                      MURDER<br />MYSTERY<br />NIGHT
-                    </div>
-                    <div style={{ width: 32, height: 1, background: accent, opacity: 0.6 }} />
-                  </div>
-                </div>
-              ))}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 32, width: "100%" }}>
+              <div style={{
+                width: 80, height: 80, borderRadius: "50%",
+                border: "2px solid var(--gold)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <path
+                    d="M20 4 C20 4 8 12 8 22 C8 30 13.5 36 20 36 C26.5 36 32 30 32 22 C32 12 20 4 20 4Z"
+                    stroke="#C9A84C" strokeWidth="1.5" fill="none"
+                  />
+                  <line x1="20" y1="8" x2="20" y2="36" stroke="#C9A84C" strokeWidth="1" opacity="0.5" />
+                </svg>
+              </div>
+
+              <div style={{ position: "relative", width: 200, height: 130 }}>
+                <div style={{
+                  position: "absolute", left: 15, top: 10, width: 88, height: 108,
+                  background: "var(--cream)", border: "1px solid rgba(201,168,76,0.25)",
+                  transform: "rotate(-4deg)",
+                }} />
+                <div style={{
+                  position: "absolute", left: 56, top: 5, width: 88, height: 108,
+                  background: "var(--forest)", border: "1px solid rgba(201,168,76,0.4)",
+                  transform: "rotate(0deg)", zIndex: 2,
+                }} />
+                <div style={{
+                  position: "absolute", left: 97, top: 10, width: 88, height: 108,
+                  background: "var(--gold)", border: "1px solid rgba(201,168,76,0.4)",
+                  transform: "rotate(4deg)", zIndex: 1,
+                }} />
+              </div>
+
+              <div style={{ display: "flex", gap: 10 }}>
+                {swatches.map((c, i) => (
+                  <div key={i} style={{
+                    width: 28, height: 28, borderRadius: "50%", background: c,
+                    border: "1px solid rgba(201,168,76,0.35)",
+                  }} aria-label={`Brand color ${i + 1}`} />
+                ))}
+              </div>
             </div>
+
             <div style={{
-              marginTop: 12, fontSize: 11, letterSpacing: 2,
-              color: "rgba(245,240,232,0.35)", fontFamily: "'DM Sans', sans-serif",
+              fontSize: 11, letterSpacing: 2, color: "rgba(245,240,232,0.3)",
+              fontFamily: "'DM Sans', sans-serif", textTransform: "uppercase", textAlign: "center",
             }}>
-              POSTER SERIES — 3 DESIGNS
+              NARICO NATURALS — BRAND SYSTEM
             </div>
           </motion.div>
 
@@ -105,50 +124,68 @@ export default function CampaignSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
             style={{
-              background: "var(--deep-green)", padding: "40px",
+              background: "rgba(28,58,47,0.5)", padding: "40px",
               border: "1px solid rgba(201,168,76,0.2)",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {metrics.map((m, i) => (
-                <div key={i} style={{ borderTop: "1px solid rgba(201,168,76,0.15)", paddingTop: 24 }}>
+                <div key={i} style={{ borderTop: "1px solid rgba(201,168,76,0.15)", padding: "22px 0" }}>
                   <div style={{
                     fontSize: 11, letterSpacing: 3, textTransform: "uppercase",
-                    color: "var(--gold)", marginBottom: 8,
-                    fontFamily: "'DM Sans', sans-serif",
+                    color: "var(--gold)", marginBottom: 8, fontFamily: "'DM Sans', sans-serif",
                   }}>
                     {m.label}
                   </div>
-                  <div style={{ fontSize: 16, color: "var(--cream)", lineHeight: 1.5 }}>
+                  <div style={{ fontSize: 15, color: "var(--cream)", lineHeight: 1.5, fontFamily: "'DM Sans', sans-serif" }}>
                     {m.value}
                   </div>
                 </div>
               ))}
             </div>
 
-            <a
-              href="/project/toastmasters-murder-mystery"
-              style={{
-                display: "inline-block", marginTop: 40, padding: "16px 32px",
-                border: "1px solid var(--gold)", color: "var(--gold)",
-                textDecoration: "none", fontSize: 12, letterSpacing: 3,
-                textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif",
-                transition: "all 0.3s ease",
-              }}
-              className="jp-campaign-cta"
-              aria-label="View full Toastmasters Murder Mystery Night campaign"
-            >
-              VIEW FULL CAMPAIGN →
-            </a>
+            <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
+              <a
+                href="https://drive.google.com/drive/folders/13pzD6hyebdegqyj_L8J4gonft8e6r-PA?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex", alignItems: "center", padding: "16px 28px",
+                  border: "1.5px solid var(--gold)", color: "var(--gold)",
+                  textDecoration: "none", fontSize: 12, letterSpacing: 3,
+                  textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif",
+                  transition: "all 0.3s ease", borderRadius: 0, fontWeight: 500,
+                }}
+                className="jp-campaign-cta"
+                aria-label="View Narico Naturals case study"
+              >
+                VIEW CASE STUDY ↗
+              </a>
+              <a
+                href="https://linkedin.com/in/jahwanthpulugujju"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex", alignItems: "center", padding: "16px 28px",
+                  border: "1.5px solid var(--gold)", color: "var(--gold)",
+                  textDecoration: "none", fontSize: 12, letterSpacing: 3,
+                  textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif",
+                  transition: "all 0.3s ease", borderRadius: 0, fontWeight: 500,
+                }}
+                className="jp-campaign-cta"
+                aria-label="View Jahwanth's LinkedIn profile"
+              >
+                LINKEDIN ↗
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
 
       <style>{`
-        .jp-campaign-cta:hover { background: var(--gold); color: var(--deep-green); }
+        .jp-campaign-cta:hover { background: var(--gold) !important; color: var(--deep-green) !important; }
         @media (max-width: 768px) {
           .jp-campaign-grid { grid-template-columns: 1fr !important; }
-          section[style*="charcoal"] { padding: 80px 24px !important; }
         }
       `}</style>
     </section>

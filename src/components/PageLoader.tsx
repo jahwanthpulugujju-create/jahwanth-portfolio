@@ -12,7 +12,7 @@ export default function PageLoader() {
     const t = setTimeout(() => {
       setVisible(false);
       sessionStorage.setItem("jp_loaded", "1");
-    }, 1700);
+    }, 1100);
     return () => clearTimeout(t);
   }, []);
 
