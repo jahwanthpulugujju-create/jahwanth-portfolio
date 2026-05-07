@@ -150,7 +150,13 @@ function Index() {
       <section className="jp-hero reveal" id="top">
         <div className="jp-hero-grain" />
         <div className="jp-hero-vignette" />
-        <div className="jp-hero-label">PORTFOLIO — 2026</div>
+        <div className="jp-hero-label">
+          <div className="jp-available">
+            <span className="jp-available-dot" />
+            <span>CURRENTLY AVAILABLE FOR INTERNSHIPS</span>
+          </div>
+          <div>PORTFOLIO — 2026</div>
+        </div>
         <div className="jp-hero-center">
           <h1 className="jp-hero-name">
             <span className="word">JAH</span>
@@ -169,6 +175,10 @@ function Index() {
             </text>
           </svg>
           <div className="jp-badge-dot" />
+        </div>
+        <div className="jp-scroll-indicator">
+          <span>SCROLL</span>
+          <div className="jp-scroll-line" />
         </div>
       </section>
 
