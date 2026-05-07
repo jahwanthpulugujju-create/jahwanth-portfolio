@@ -154,13 +154,43 @@
 }
 
 html, body { cursor: none; }
-body { background: var(--cream); }
+body { background: var(--cream); margin: 0; }
+html, body { scroll-behavior: smooth; }
 
 .jp-root {
   font-family: 'DM Sans', sans-serif;
   color: var(--charcoal);
   background: var(--cream);
   overflow-x: hidden;
+}
+
+/* NAV */
+.jp-nav {
+  position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 9998;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; background: transparent;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+.jp-nav.scrolled {
+  background: rgba(28,58,47,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.jp-nav-logo {
+  font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold);
+  text-decoration: none; font-weight: 700;
+}
+.jp-nav-links { display: flex; gap: 36px; }
+.jp-nav-links a {
+  font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--cream); text-decoration: none;
+  transition: color 0.3s ease;
+}
+.jp-nav-links a:hover { color: var(--gold); }
+@media (max-width: 768px) {
+  .jp-nav { padding: 0 20px; }
+  .jp-nav-links { gap: 18px; }
+  .jp-nav-links a { font-size: 11px; letter-spacing: 2px; }
 }
 
 .jp-root h1, .jp-root h2, .jp-root h3 {
@@ -234,6 +264,10 @@ body { background: var(--cream); }
   position: absolute; inset: 0; pointer-events: none; opacity: 0.18;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   animation: jp-grain 8s linear infinite;
+}
+.jp-hero-vignette {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.45) 100%);
 }
 @keyframes jp-grain {
   0% { transform: translate(0,0); }
@@ -361,12 +395,14 @@ body { background: var(--cream); }
 .jp-mock { display: flex; flex-direction: column; gap: 24px; align-items: center; }
 .jp-mock-logo svg { width: 80px; height: 80px; }
 .jp-mock-posts { display: flex; gap: 12px; }
-.jp-mock-posts > div {
-  width: 70px; height: 90px; background: var(--cream); border-radius: 2px;
-  position: relative;
+.jp-mock-post {
+  width: 78px; height: 100px; border-radius: 2px;
+  box-shadow: 0 12px 24px -10px rgba(0,0,0,0.5);
+  border: 1px solid rgba(201,168,76,0.35);
 }
-.jp-mock-posts > div:nth-child(2) { background: var(--gold); }
-.jp-mock-posts > div:nth-child(3) { background: var(--cream); opacity: 0.7; }
+.jp-mock-post.p1 { background: var(--cream); transform: rotate(-3deg) translateX(8px); }
+.jp-mock-post.p2 { background: var(--gold); transform: rotate(0deg) translateY(-6px); margin: 0 -10px; z-index: 2; }
+.jp-mock-post.p3 { background: var(--forest); transform: rotate(3deg) translateX(-8px); }
 .jp-mock-swatches { display: flex; gap: 8px; }
 .jp-mock-swatches span { width: 24px; height: 24px; border-radius: 50%; display: block; border: 1px solid rgba(201,168,76,0.4); }
 
@@ -383,18 +419,32 @@ body { background: var(--cream); }
 .jp-btn.primary {
   border: 1px solid var(--gold); color: var(--gold);
 }
-.jp-btn.primary:hover { background: var(--gold); color: var(--deep-green); }
+.jp-btn.primary:hover {
+  background: var(--gold); color: var(--deep-green);
+  transform: scale(1.02);
+}
 .jp-btn.ghost { color: var(--cream); border-bottom: 1px solid transparent; padding: 14px 0; }
 .jp-btn.ghost:hover { border-bottom-color: var(--gold); color: var(--gold); }
 
 /* SKILLS */
-.jp-skills { background: var(--warm-white); padding: 160px 80px; }
+.jp-skills { background: var(--warm-white); padding: 160px 80px; position: relative; overflow: hidden; }
+.jp-skills-watermark {
+  position: absolute; top: 60px; right: 60px;
+  font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900;
+  color: var(--forest); opacity: 0.08; line-height: 1; pointer-events: none;
+}
 .jp-skills-h { font-size: 72px; color: var(--deep-green); margin-bottom: 80px; max-width: 1400px; margin-left: auto; margin-right: auto; }
 .jp-skills-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
 .jp-skill {
   padding: 28px 32px; transition: background 0.3s ease, border-color 0.3s ease;
-  max-width: 560px;
+  max-width: 560px; position: relative;
 }
+.jp-skill::before {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 3px; height: 0;
+  background: var(--gold); transform-origin: bottom;
+  transition: height 0.4s ease;
+}
+.jp-skill:hover::before { height: 100%; }
 .jp-skill-bar { height: 2px; background: var(--gold); margin-bottom: 20px; transition: background 0.3s ease; }
 .jp-skill-t {
   font-family: 'Playfair Display', serif; font-style: italic;
@@ -413,8 +463,8 @@ body { background: var(--cream); }
 }
 .jp-step { position: relative; padding-right: 24px; }
 .jp-step-n {
-  font-family: 'Playfair Display', serif; font-size: 120px;
-  color: var(--gold); opacity: 0.35; line-height: 1; font-weight: 700;
+  font-family: 'Playfair Display', serif; font-size: 140px;
+  color: var(--gold); opacity: 0.18; line-height: 1; font-weight: 700;
 }
 .jp-step-t {
   font-family: 'Playfair Display', serif; font-size: 24px;
@@ -427,12 +477,12 @@ body { background: var(--cream); }
 }
 
 /* CONTACT */
-.jp-contact { background: var(--cream); padding: 180px 60px; text-align: center; }
+.jp-contact { background: var(--cream); padding: 160px 60px 120px; text-align: center; }
 .jp-contact-h {
-  font-size: 96px; color: var(--deep-green); letter-spacing: -3px;
+  font-size: 88px; color: var(--deep-green); letter-spacing: -3px;
   line-height: 1.05; font-weight: 700;
 }
-.jp-contact-h em { font-style: italic; color: var(--gold); font-weight: 400; }
+.jp-contact-h em { font-style: italic; color: var(--gold); font-weight: 400; font-size: 96px; }
 .jp-contact-p { font-size: 18px; margin-top: 32px; color: var(--charcoal); opacity: 0.8; }
 .jp-contact-btns {
   display: flex; gap: 20px; justify-content: center; margin-top: 56px; flex-wrap: wrap;
