@@ -7,7 +7,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Jahwanth Pulugujju — Brand Strategy & Creative Direction" },
       { name: "description", content: "Portfolio of Jahwanth Pulugujju — Creative Strategist, Brand Designer & Content Marketer based in Hyderabad." },
-      { property: "og:title", content: "Jahwanth Pulugujju — Portfolio 2025" },
+      { property: "og:title", content: "Jahwanth Pulugujju — Portfolio 2026" },
       { property: "og:description", content: "Brand Strategy · Content Systems · Creative Direction" },
     ],
     links: [
@@ -150,7 +150,7 @@ function Index() {
       <section className="jp-hero reveal" id="top">
         <div className="jp-hero-grain" />
         <div className="jp-hero-vignette" />
-        <div className="jp-hero-label">PORTFOLIO — 2025</div>
+        <div className="jp-hero-label">PORTFOLIO — 2026</div>
         <div className="jp-hero-center">
           <h1 className="jp-hero-name">
             <span className="word">JAH</span>
@@ -306,7 +306,7 @@ function Index() {
       {/* FOOTER */}
       <footer className="jp-footer">
         <span>Jahwanth Pulugujju</span>
-         <span>© 2026 Jahwanth Pulugujju — Built with intention.</span>
+         <span>© {new Date().getFullYear()} Jahwanth Pulugujju — Built with intention.</span>
       </footer>
     </div>
   );
