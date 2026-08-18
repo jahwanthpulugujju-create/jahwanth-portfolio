@@ -1,12 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {
-  Outlet,
-  Link,
-  createRootRouteWithContext,
-  useRouter,
-} from "@tanstack/react-router";
+import { Outlet, Link, createRootRouteWithContext, useRouter } from "@tanstack/react-router";
 
-// Intentionally empty — CSS is imported in main.tsx
+// Intentionally empty , CSS is imported in main.tsx
 
 function NotFoundComponent() {
   return (

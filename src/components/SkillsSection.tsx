@@ -7,11 +7,10 @@ export default function SkillsSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section
-      ref={ref as React.RefObject<HTMLElement>}
-      className="jp-skills"
-    >
-      <div className="jp-skills-watermark" aria-hidden="true">02</div>
+    <section ref={ref as React.RefObject<HTMLElement>} className="jp-skills">
+      <div className="jp-skills-watermark" aria-hidden="true">
+        02
+      </div>
       <motion.h2
         className="jp-skills-h"
         initial={{ opacity: 0, y: 40 }}

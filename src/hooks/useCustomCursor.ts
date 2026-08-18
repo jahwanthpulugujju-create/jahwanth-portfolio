@@ -2,11 +2,16 @@ import { useEffect } from "react";
 
 export function useCustomCursor(cursorRef: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
-    let mx = window.innerWidth / 2, my = window.innerHeight / 2;
-    let cx = mx, cy = my;
+    let mx = window.innerWidth / 2,
+      my = window.innerHeight / 2;
+    let cx = mx,
+      cy = my;
     let raf = 0;
 
-    const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY; };
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX;
+      my = e.clientY;
+    };
     window.addEventListener("mousemove", onMove);
 
     const tick = () => {
@@ -22,7 +27,7 @@ export function useCustomCursor(cursorRef: React.RefObject<HTMLDivElement | null
     const hoverables = document.querySelectorAll("a, button, [data-cursor='expand']");
     const enter = () => cursorRef.current?.classList.add("expand");
     const leave = () => cursorRef.current?.classList.remove("expand");
-    hoverables.forEach(el => {
+    hoverables.forEach((el) => {
       el.addEventListener("mouseenter", enter);
       el.addEventListener("mouseleave", leave);
     });
@@ -30,7 +35,7 @@ export function useCustomCursor(cursorRef: React.RefObject<HTMLDivElement | null
     return () => {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
-      hoverables.forEach(el => {
+      hoverables.forEach((el) => {
         el.removeEventListener("mouseenter", enter);
         el.removeEventListener("mouseleave", leave);
       });

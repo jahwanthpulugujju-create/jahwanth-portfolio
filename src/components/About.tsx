@@ -13,7 +13,9 @@ export default function About() {
 
   return (
     <section className="jp-about" id="about" ref={ref as React.RefObject<HTMLElement>}>
-      <div className="jp-about-bignum" aria-hidden="true">01</div>
+      <div className="jp-about-bignum" aria-hidden="true">
+        01
+      </div>
       <div className="jp-about-grid">
         <motion.div
           className="jp-about-left"
@@ -32,7 +34,12 @@ export default function About() {
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
           <p>
-            I'm a Computer Science student at BVRIT Narsapur who thinks like a brand strategist. I study what makes people stop scrolling, what makes them trust a brand, and what makes them come back. My work sits at the intersection of visual identity, content psychology, and digital storytelling — built for brands that want to mean something. Before I design a post, I ask: what feeling should this create? That question is what separates content from communication.
+            I'm a Computer Science student at BVRIT Narsapur who thinks like a brand strategist. I
+            study what makes people stop scrolling, what makes them trust a brand, and what makes
+            them come back. My work sits at the intersection of visual identity, content psychology,
+            and digital storytelling , built for brands that want to mean something. Before I design
+            a post, I ask: what feeling should this create? That question is what separates content
+            from communication.
           </p>
           <div className="jp-stats">
             {stats.map((s, i) => (

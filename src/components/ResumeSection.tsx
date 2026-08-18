@@ -11,8 +11,10 @@ export default function ResumeSection() {
       ref={ref as React.RefObject<HTMLElement>}
       id="resume"
       style={{
-        background: "var(--deep-green)", padding: "120px 80px",
-        color: "var(--cream)", textAlign: "center",
+        background: "var(--deep-green)",
+        padding: "120px 80px",
+        color: "var(--cream)",
+        textAlign: "center",
       }}
     >
       <div style={{ maxWidth: 900, margin: "0 auto" }}>
@@ -21,8 +23,11 @@ export default function ResumeSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Playfair Display', serif", fontSize: 64,
-            fontWeight: 700, margin: "0 0 64px", lineHeight: 1.1,
+            fontFamily: "'Playfair Display', serif",
+            fontSize: 64,
+            fontWeight: 700,
+            margin: "0 0 64px",
+            lineHeight: 1.1,
           }}
         >
           Built on Real Execution
@@ -33,15 +38,22 @@ export default function ResumeSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
           style={{
-            background: "var(--forest)", padding: "48px 56px",
-            border: "1px solid rgba(201,168,76,0.2)", marginBottom: 56,
+            background: "var(--forest)",
+            padding: "48px 56px",
+            border: "1px solid rgba(201,168,76,0.2)",
+            marginBottom: 56,
             textAlign: "left",
           }}
         >
-          <p style={{
-            fontSize: 16, lineHeight: 1.8, color: "rgba(245,240,232,0.85)",
-            marginBottom: 40, fontFamily: "'DM Sans', sans-serif",
-          }}>
+          <p
+            style={{
+              fontSize: 16,
+              lineHeight: 1.8,
+              color: "rgba(245,240,232,0.85)",
+              marginBottom: 40,
+              fontFamily: "'DM Sans', sans-serif",
+            }}
+          >
             {resumeData.summary}
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -49,17 +61,31 @@ export default function ResumeSection() {
               <div
                 key={i}
                 style={{
-                  display: "flex", gap: 20, alignItems: "flex-start",
-                  paddingTop: 20, borderTop: "1px solid rgba(201,168,76,0.12)",
+                  display: "flex",
+                  gap: 20,
+                  alignItems: "flex-start",
+                  paddingTop: 20,
+                  borderTop: "1px solid rgba(201,168,76,0.12)",
                 }}
               >
-                <span style={{
-                  color: "var(--gold)", fontSize: 18, flexShrink: 0, marginTop: 2,
-                }}>→</span>
-                <span style={{
-                  fontSize: 16, color: "var(--cream)", lineHeight: 1.6,
-                  fontFamily: "'DM Sans', sans-serif",
-                }}>
+                <span
+                  style={{
+                    color: "var(--gold)",
+                    fontSize: 18,
+                    flexShrink: 0,
+                    marginTop: 2,
+                  }}
+                >
+                  →
+                </span>
+                <span
+                  style={{
+                    fontSize: 16,
+                    color: "var(--cream)",
+                    lineHeight: 1.6,
+                    fontFamily: "'DM Sans', sans-serif",
+                  }}
+                >
                   {a}
                 </span>
               </div>
@@ -78,11 +104,17 @@ export default function ResumeSection() {
             download
             aria-label="Download Jahwanth's resume PDF"
             style={{
-              display: "inline-block", padding: "20px 48px",
-              background: "var(--gold)", color: "var(--deep-green)",
-              textDecoration: "none", fontSize: 12, letterSpacing: 3,
-              textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 600, transition: "all 0.3s ease",
+              display: "inline-block",
+              padding: "20px 48px",
+              background: "var(--gold)",
+              color: "var(--deep-green)",
+              textDecoration: "none",
+              fontSize: 12,
+              letterSpacing: 3,
+              textTransform: "uppercase",
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 600,
+              transition: "all 0.3s ease",
             }}
             className="jp-resume-btn"
           >
@@ -93,8 +125,10 @@ export default function ResumeSection() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              fontSize: 15, color: "rgba(245,240,232,0.6)",
-              textDecoration: "none", fontFamily: "'DM Sans', sans-serif",
+              fontSize: 15,
+              color: "rgba(245,240,232,0.6)",
+              textDecoration: "none",
+              fontFamily: "'DM Sans', sans-serif",
               transition: "color 0.3s ease",
             }}
             className="jp-linkedin-link"

@@ -16,16 +16,16 @@ export default function ProjectGrid() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [activeFilter, setActiveFilter] = useState<Filter>("all");
 
-  const filtered = activeFilter === "all"
-    ? projects
-    : projects.filter((p) => p.category === activeFilter);
+  const filtered =
+    activeFilter === "all" ? projects : projects.filter((p) => p.category === activeFilter);
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
       id="work"
       style={{
-        background: "var(--warm-white)", padding: "120px 80px",
+        background: "var(--warm-white)",
+        padding: "120px 80px",
         overflow: "hidden",
       }}
     >
@@ -35,8 +35,11 @@ export default function ProjectGrid() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "'Playfair Display', serif", fontSize: 80,
-            color: "var(--deep-green)", fontWeight: 700, margin: "0 0 48px",
+            fontFamily: "'Playfair Display', serif",
+            fontSize: 80,
+            color: "var(--deep-green)",
+            fontWeight: 700,
+            margin: "0 0 48px",
             lineHeight: 1,
           }}
         >
@@ -54,13 +57,21 @@ export default function ProjectGrid() {
               key={f.value}
               onClick={() => setActiveFilter(f.value)}
               style={{
-                background: "none", border: "none", cursor: "none",
-                fontFamily: "'DM Sans', sans-serif", fontSize: 13,
-                letterSpacing: 4, textTransform: "uppercase",
+                background: "none",
+                border: "none",
+                cursor: "none",
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: 13,
+                letterSpacing: 4,
+                textTransform: "uppercase",
                 color: activeFilter === f.value ? "var(--deep-green)" : "rgba(26,26,26,0.4)",
-                paddingBottom: 6, paddingLeft: 0, paddingRight: 0,
-                borderBottom: activeFilter === f.value ? "1px solid var(--gold)" : "1px solid transparent",
-                transition: "all 0.3s ease", fontWeight: activeFilter === f.value ? 500 : 400,
+                paddingBottom: 6,
+                paddingLeft: 0,
+                paddingRight: 0,
+                borderBottom:
+                  activeFilter === f.value ? "1px solid var(--gold)" : "1px solid transparent",
+                transition: "all 0.3s ease",
+                fontWeight: activeFilter === f.value ? 500 : 400,
               }}
               aria-label={`Filter by ${f.label}`}
             >
@@ -92,11 +103,15 @@ export default function ProjectGrid() {
         </motion.div>
 
         {filtered.length === 0 && (
-          <div style={{
-            textAlign: "center", padding: "80px 0",
-            fontFamily: "'DM Sans', sans-serif", color: "rgba(26,26,26,0.4)",
-            fontSize: 16,
-          }}>
+          <div
+            style={{
+              textAlign: "center",
+              padding: "80px 0",
+              fontFamily: "'DM Sans', sans-serif",
+              color: "rgba(26,26,26,0.4)",
+              fontSize: 16,
+            }}
+          >
             No projects in this category yet.
           </div>
         )}

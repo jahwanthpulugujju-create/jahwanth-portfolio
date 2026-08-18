@@ -17,8 +17,14 @@ export default function ScrollProgress() {
     <div
       ref={barRef}
       style={{
-        position: "fixed", top: 0, left: 0, height: 2, width: 0,
-        background: "var(--gold)", zIndex: 9999, pointerEvents: "none",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        height: 2,
+        width: 0,
+        background: "var(--gold)",
+        zIndex: 9999,
+        pointerEvents: "none",
         transition: "width 0.05s linear",
       }}
     />

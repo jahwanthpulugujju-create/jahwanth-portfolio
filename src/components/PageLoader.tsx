@@ -25,8 +25,12 @@ export default function PageLoader() {
           exit={{ y: "-100%" }}
           transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.05 }}
           style={{
-            position: "fixed", inset: 0, background: "var(--deep-green)",
-            display: "flex", alignItems: "center", justifyContent: "center",
+            position: "fixed",
+            inset: 0,
+            background: "var(--deep-green)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             zIndex: 10002,
           }}
         >
@@ -36,7 +40,10 @@ export default function PageLoader() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: 180, color: "var(--cream)", fontWeight: 700, lineHeight: 1,
+              fontSize: 180,
+              color: "var(--cream)",
+              fontWeight: 700,
+              lineHeight: 1,
             }}
           >
             J

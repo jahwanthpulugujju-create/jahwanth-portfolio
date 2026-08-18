@@ -20,7 +20,7 @@ export default function Hero() {
           <span className="jp-available-dot" />
           <span>CURRENTLY AVAILABLE FOR INTERNSHIPS</span>
         </div>
-        <div>PORTFOLIO — 2026</div>
+        <div>PORTFOLIO , 2026</div>
       </div>
 
       <motion.div
@@ -36,7 +36,11 @@ export default function Hero() {
               className="word"
               variants={{
                 hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] } },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+                },
               }}
             >
               {word}
@@ -76,7 +80,9 @@ export default function Hero() {
             <path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
           </defs>
           <text className="jp-badge-text">
-            <textPath href="#circ">OPEN TO OPPORTUNITIES · HYDERABAD · OPEN TO OPPORTUNITIES · HYDERABAD ·</textPath>
+            <textPath href="#circ">
+              OPEN TO OPPORTUNITIES · HYDERABAD · OPEN TO OPPORTUNITIES · HYDERABAD ·
+            </textPath>
           </text>
         </svg>
         <div className="jp-badge-dot" />

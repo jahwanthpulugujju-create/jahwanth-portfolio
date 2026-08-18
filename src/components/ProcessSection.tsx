@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 const steps = [
   { n: "01", t: "Observe", d: "I study the brand, the audience, and what already exists." },
   { n: "02", t: "Identify", d: "I find the gap between what the brand says and what people feel." },
-  { n: "03", t: "Build", d: "I create systems — not one-off posts." },
+  { n: "03", t: "Build", d: "I create systems , not one-off posts." },
   { n: "04", t: "Refine", d: "I iterate based on what performs and what resonates." },
 ];
 

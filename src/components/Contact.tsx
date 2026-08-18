@@ -6,11 +6,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section
-      ref={ref as React.RefObject<HTMLElement>}
-      className="jp-contact"
-      id="contact"
-    >
+    <section ref={ref as React.RefObject<HTMLElement>} className="jp-contact" id="contact">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -23,7 +19,11 @@ export default function Contact() {
         </h2>
         <p className="jp-contact-p">Open to internships, freelance, and creative collaborations.</p>
         <div className="jp-contact-btns">
-          <a className="jp-pill" href="mailto:jahwanthpulugujju@gmail.com" aria-label="Email Jahwanth">
+          <a
+            className="jp-pill"
+            href="mailto:jahwanthpulugujju@gmail.com"
+            aria-label="Email Jahwanth"
+          >
             jahwanthpulugujju@gmail.com
           </a>
           <a
